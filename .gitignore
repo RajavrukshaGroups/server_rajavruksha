@@ -1,0 +1,7 @@
+# Node modules
+node_modules
+
+# Optional: add other common files and folders to ignore
+.env
+.DS_Store
+*.log
