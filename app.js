@@ -5,14 +5,14 @@ const mongoose = require('mongoose');
 const multer = require('multer');
 const { storage } = require('./cloudConfig.js');
 const upload = multer({ storage });
-const usersRouter = require('./Routes/userRoutes');
-const contactRouter = require('./Routes/contactRoutes');
-const { createNewForm } = require('./controlller/userController');
-const { saveContactDetails, contactMail } = require('./controlller/contactController');
+const usersRouter = require('./Routes/userRoutes.js');
+const contactRouter = require('./Routes/contactRoutes.js');
+const { createNewForm } = require('./controlller/userController.js');
+const { saveContactDetails, contactMail } = require('./controlller/contactController.js');
 const {careerDetails, getIndCareerDetails}=require("./controlller/careerController.js");
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 
 // MongoDB connection
 const cluster_url = 'mongodb+srv://enquiry:mHpnVFW1fNgdla8h@cluster0.osdmv.mongodb.net/';
