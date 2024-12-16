@@ -2,7 +2,7 @@ const mongoose=require('mongoose');
 module.exports.careerDetails = async (req, res) => {
   try {
     const careers = await mongoose.connection.db.collection('careers').find().toArray();
-    // console.log("careers", careers);
+    console.log("careers", careers);
     res.status(200).json({ success: true, data: careers });
   } catch (e) {
     console.error("Error fetching career details", e);
