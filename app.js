@@ -27,8 +27,24 @@ mongoose
   .catch((err) => console.log(err));
 
 // Middleware
-app.use(cors({ origin: "https://rajavrukshagroup.in" }));
+// app.use(cors({ origin: "https://rajavrukshagroup.in" }));
 // app.use(cors({ origin: 'http://localhost:3038' }));
+
+    const allowedOrigins = ["https://rajavrukshagroup.in","https://testplumeria.rajavrukshagroup.in"];
+  app.use(cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true, // Allow cookies and authentication headers
+  }));
+
+
+
+
 app.use(express.json());
 app.use(express.static("public"));
 
