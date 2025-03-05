@@ -22,7 +22,7 @@ module.exports.saveContactDetails = async (req, res) => {
 module.exports.contactMail = async (req, res) => {
   console.log("function called");
   console.log("req_body", req.body);
-  const { name, lastName = "", email, message, phone_no, isModal,project } = req.body;
+  const { name, lastName = "", email, message, phone_no, isModal ,project} = req.body;
   const recipientEmail = process.env.RECIPIENT_EMAIL;
   const recipientPass = process.env.RECIPIENT_PASS;
   if (!recipientEmail || !recipientPass) {
@@ -63,7 +63,7 @@ module.exports.contactMail = async (req, res) => {
   let emailContact;
   if (!!isModal) {
     emailContact = `
-       <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+      <div style="font-family: Arial, sans-serif; line-height: 1.6;">
           <h2 style="color: #333;">New Contact Request For ${project}</h2>
           <p><strong>Name:</strong> ${name}</p>
           <p><strong>Email:</strong> ${email}</p>
@@ -109,3 +109,4 @@ module.exports.contactMail = async (req, res) => {
     res.status(500).send("Error sending message. Please try again later.");
   }
 };
+
