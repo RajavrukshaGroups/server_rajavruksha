@@ -26,7 +26,7 @@ mongoose
   .then(() => console.log("Database connected"))
   .catch((err) => console.log(err));
 
-  const allowedOrigins = ["https://rajavrukshagroup.in", "https://testplumeria.rajavrukshagroup.in"];
+  const allowedOrigins = ["https://rajavrukshagroup.in", "https://plumeria.rajavrukshagroup.in"];
 
   app.use(cors({
     origin: function (origin, callback) {
