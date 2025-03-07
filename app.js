@@ -10,6 +10,7 @@ const { createNewForm } = require("./controlller/userController.js");
 const {
   saveContactDetails,
   contactMail,
+  plumeriaContactMail
 } = require("./controlller/contactController.js");
 const {
   careerDetails,
@@ -46,6 +47,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Routes
+app.post("/plumeriacontact",plumeriaContactMail);
 app.get("/", (req, res) => res.send("Hello, World!"));
 app.use("/", usersRouter);
 app.post("/careerForm", upload.single("file"), createNewForm);
