@@ -47,7 +47,7 @@ mongoose
 app.use(express.json());
 app.use(express.static("public"));
 
-// Routes
+//  Routes
 app.post("/plumeriacontact",plumeriaContactMail);
 app.get("/", (req, res) => res.send("Hello, World!"));
 app.use("/", usersRouter);
