@@ -35,8 +35,8 @@ mongoose
       } else {
         callback(new Error("Not allowed by CORS"));
       }
-    },
-    credentials: true, // Allow cookies and authentication headers
+     },
+      credentials: true, // Allow cookies and authentication headers
   }));
 
 // Middleware
