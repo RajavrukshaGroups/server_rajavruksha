@@ -208,4 +208,4 @@ module.exports.plumeriaContactMail = async (req, res) => {
     console.error("Error sending email:", error);
     res.status(500).send("Error sending message. Please try again later.");
   }
-};
+
