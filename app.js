@@ -10,6 +10,7 @@ const { createNewForm } = require("./controlller/userController.js");
 const {
   saveContactDetails,
   contactMail,
+  plumeriaContactMail
 } = require("./controlller/contactController.js");
 const {
   careerDetails,
@@ -26,7 +27,7 @@ mongoose
   .then(() => console.log("Database connected"))
   .catch((err) => console.log(err));
 
-  const allowedOrigins = ["https://rajavrukshagroup.in", "https://plumeria.rajavrukshagroup.in"];
+  const allowedOrigins = ["https://rajavrukshagroup.in", "https://plumeria.rajavrukshagroup.in","https://plumeriaresort.in"];
 
   app.use(cors({
     origin: function (origin, callback) {
@@ -35,8 +36,8 @@ mongoose
       } else {
         callback(new Error("Not allowed by CORS"));
       }
-     },
-      credentials: true, // Allow cookies and authentication headers
+    },
+    credentials: true, // Allow cookies and authentication headers
   }));
 
 // Middleware
@@ -45,7 +46,8 @@ mongoose
 app.use(express.json());
 app.use(express.static("public"));
 
-// Routes
+//  Routes
+app.post("/plumeriacontact",plumeriaContactMail);
 app.get("/", (req, res) => res.send("Hello, World!"));
 app.use("/", usersRouter);
 app.post("/careerForm", upload.single("file"), createNewForm);
